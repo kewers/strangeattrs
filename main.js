@@ -19,7 +19,7 @@ const maxPoints = 10000;
 const positions = new Float32Array(maxPoints * 3);
 let pointCount = 0;
 
-// Geometry and material for points
+// Geometry and material for line
 const geometry = new THREE.BufferGeometry();
 geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
@@ -27,15 +27,15 @@ geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 const colors = new Float32Array(maxPoints * 3);
 geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
-const material = new THREE.PointsMaterial({
-  size: 0.1,
+const material = new THREE.LineBasicMaterial({
   vertexColors: true,
+  linewidth: 2, // Note: linewidth may be capped at 1 on some systems
   transparent: true,
   opacity: 0.8
 });
 
-const pointCloud = new THREE.Points(geometry, material);
-scene.add(pointCloud);
+const line = new THREE.Line(geometry, material);
+scene.add(line);
 
 // Add axes helper
 const axesHelper = new THREE.AxesHelper(20);

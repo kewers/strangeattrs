@@ -103,6 +103,14 @@ window.addEventListener('resize', () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
+function lorenzDerivatives2(x, y, z, params) {
+  const { sigma, rho, beta } = params;
+  const dx = (x*x);
+  const dy = 0;
+  const dz = 0;
+  return { dx, dy, dz };
+}
+
 // Derivative functions for each attractor
 function lorenzDerivatives(x, y, z, params) {
   const { sigma, rho, beta } = params;
